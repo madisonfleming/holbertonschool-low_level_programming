@@ -3,9 +3,9 @@
 #include <time.h>
 
 /**
- * main - Entry point
- *
- * Return : Always 0 (Success)
+ * main - entry point
+ * Description: if statements and print f
+ * Return: Success (0)
  */
 
 int main(void)
