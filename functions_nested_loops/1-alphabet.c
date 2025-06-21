@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * main - entry point
- * Decription: printalphabetusing _putchar
+ * print_alphabet - entry point
+ * Description: The new function print_alphabet to print the alphabet in lowercase using _putchar
  * Return: Success (0)
  */
 
