@@ -2,7 +2,7 @@
 
 /**
  * print_alphabet - entry point
- * Description: The new function print_alphabet to print the alphabet in lowercase using _putchar
+ * Description: use print_alphabet to print the alphabet with _putchar
  * Return: Success (0)
  */
 
