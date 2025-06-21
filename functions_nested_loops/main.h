@@ -3,7 +3,7 @@
 
 /**
  * _putchar - does the same as putchar()
- * return: Success
+ * return: Always 0.
  */
 
 int _putchar(int c);
