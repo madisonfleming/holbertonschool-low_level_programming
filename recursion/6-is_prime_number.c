@@ -1,8 +1,8 @@
 #include "main.h"
 /**
 * check_prime - checking if a number is prime
-* @n: the numer
-* @check: if number is 1 it is prime
+* @n: the number
+* @i: checking other numbers
 * Return: 1 if prime, otherwise return 0
 */
 int check_prime(int n, int i)
@@ -15,7 +15,7 @@ int check_prime(int n, int i)
 	{
 		return (0);
 	}
-return check_prime(n, i - 1);
+return (check_prime(n, i - 1));
 }
 
 #include "main.h"
