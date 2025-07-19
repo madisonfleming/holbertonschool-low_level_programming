@@ -1,5 +1,6 @@
-#include "calc.h"
+#include "3-calc.h"
 #include <stdio.h>
+#include <stdlib.h>
 /**
  * get_op_func - function pointer to the operator
  * @s: the string of arguments
