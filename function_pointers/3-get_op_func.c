@@ -26,8 +26,8 @@ int (*get_op_func(char *s))(int, int)
 
 		if ((i > 4) || (s[1] != '\0'))
 		{
-			printf("Error");
-			exit(98);
+			printf("Error\n");
+			exit(99);
 		}
 	}
 	return (ops[i].f);
