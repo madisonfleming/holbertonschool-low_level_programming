@@ -6,12 +6,12 @@
  *
  * Description: this file includes prototypes of functions
  * that use function pointers.
+ * @name: pointer to string to be printed
+ * @f: function pointer to print a name
  */
 
-#include <stddef.h>
+#include <unistd.h>
 
 void print_name(char *name, void (*f)(char *));
-void array_iterator(int *array, size_t size, void (*action)(int));
-int int_index(int *array, int size, int (*cmp)(int));
 
 #endif
