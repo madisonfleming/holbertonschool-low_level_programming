@@ -39,8 +39,8 @@ void print_string(va_list *args)
 
 	if (str == NULL)
 		printf("(nil)");
-	else
-		printf("%s", str);
+
+printf("%s", str);
 }
 
 /**
@@ -59,8 +59,8 @@ void print_all(const char * const format, ...)
 	va_list list;
 	int i = 0;
 	int j = 0;
-	int printed_one = 0;
 	int match;
+	char *separator = "";
 
 	va_start(list, format);
 	while (format != NULL && format[i] != '\0')
@@ -70,11 +70,10 @@ void print_all(const char * const format, ...)
 		{
 			if (ops[j].type == format[i] && match == 0)
 			{
-				if (printed_one)
-					printf(", ");
+				printf("%s", separator);
 				ops[j].f(&list);
-			printed_one = 1;
-			match = 1;
+				separator = ", ";
+				match = 1;
 			}
 			j++;
 		}
