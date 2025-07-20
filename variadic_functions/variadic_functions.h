@@ -5,8 +5,8 @@
  * variadic_functions.h - header file for all functions
  *
  * Description: this file includes prototypes of variadic functions
- * @name: pointer to string to be printed
- * @f: function pointer to print a name
+ * @n: num of arguments
+ * Return: Success
  */
 
 #include <unistd.h>
