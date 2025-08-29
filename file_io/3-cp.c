@@ -50,7 +50,7 @@ int main(int ac, char *av[])
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			close_fd(fd_from);
 			close_fd(fd_to);
-			exit(99);
+			exit(98);
 		}
 	}
 	if (r == -1)
