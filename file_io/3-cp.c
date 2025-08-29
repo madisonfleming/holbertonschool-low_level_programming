@@ -38,8 +38,8 @@ int main(int ac, char *av[])
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		close(fd_from);
-		exit(98);
+		close_fd(fd_from);
+		exit(99);
 	}
 
 	while ((r = read(fd_from, buffer, 1024)) > 0)
