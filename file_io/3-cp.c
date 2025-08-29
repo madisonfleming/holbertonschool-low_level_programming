@@ -45,7 +45,7 @@ int main(int ac, char *av[])
 			close_fd(fd_from);
 			close_fd(fd_to);
 			exit(98);
-        	}
+		}
 		w = write(fd_to, buffer, r);
 		if (w != r || w == -1)
 		{
