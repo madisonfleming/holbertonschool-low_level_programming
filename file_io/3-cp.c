@@ -39,13 +39,6 @@ int main(int ac, char *av[])
 	}
 	while ((r = read(fd_from, buffer, BUFFER_SIZE)) != 0)
 	{
-		if (r == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-			close_fd(fd_from);
-			close_fd(fd_to);
-			exit(98);
-		}
 		w = write(fd_to, buffer, r);
 		if (w != r || w == -1)
 		{
@@ -54,6 +47,13 @@ int main(int ac, char *av[])
 			close_fd(fd_to);
 			exit(99);
 		}
+	}
+	if (r == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		close_fd(fd_from);
+		close_fd(fd_to);
+		exit(98);
 	}
 	close_fd(fd_from);
 	close_fd(fd_to);
