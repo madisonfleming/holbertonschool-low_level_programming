@@ -37,7 +37,7 @@ int main(int ac, char *av[])
 		close(fd_from);
 		exit(99);
 	}
-	while ((r = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while ((r = read(fd_from, buffer, BUFFER_SIZE)) != 0)
 	{
 		if (r == -1)
 		{
@@ -47,8 +47,7 @@ int main(int ac, char *av[])
 			exit(98);
         	}
 		w = write(fd_to, buffer, r);
-		
-		if (w != r)
+		if (w != r || w == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			close_fd(fd_from);
