@@ -17,20 +17,24 @@ int main(int ac, char *av[])
 	int fd_from, fd_to, r, w;
 	char *buffer;
 
-	buffer = malloc(1024);
-	if (buffer == NULL)
-		exit(99);
-
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
+	buffer = malloc(1024);
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't allocate memory\n");
+		exit(99);
+	}
+
 	fd_from = open(av[1], O_RDONLY);
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		free(buffer);
 		exit(98);
 	}
 
@@ -38,6 +42,7 @@ int main(int ac, char *av[])
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		free(buffer);
 		close_fd(fd_from);
 		exit(99);
 	}
@@ -48,6 +53,7 @@ int main(int ac, char *av[])
 		if (w == -1 || w != r)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			free(buffer);
 			close_fd(fd_from);
 			close_fd(fd_to);
 			exit(99);
@@ -56,6 +62,7 @@ int main(int ac, char *av[])
 	if (r == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		free(buffer);
 		close_fd(fd_from);
 		close_fd(fd_to);
 		exit(98);
