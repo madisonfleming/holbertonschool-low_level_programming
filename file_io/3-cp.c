@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -62,11 +63,8 @@ void copy_file(int fd_from, int fd_to, char *file_from, char *file_to)
 
 /**
  * main - Copies content of file to another
- *
  * @argc: int
- *
  * @argv: double pointer
- *
  * Return: Copy of file
  */
 int main(int argc, char **argv)
@@ -86,10 +84,10 @@ int main(int argc, char **argv)
 		close(fd_from);
 		error_exit(99, "Error: Can't write to %s\n", argv[2]);
 	}
-
 	copy_file(fd_from, fd_to, argv[1], argv[2]);
 
 	close_fd(fd_from);
 	close_fd(fd_to);
 return (0);
 }
+
