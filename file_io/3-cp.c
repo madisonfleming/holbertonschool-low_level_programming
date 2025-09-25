@@ -19,6 +19,18 @@ void error_exit(int code, const char *format, const char *arg)
 }
 
 /**
+* close_fd - close file successfully
+* @fd: file to close
+*/
+void close_fd(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+/**
  * main - Copies content of file to another
  *
  * @argc: int
@@ -72,10 +84,8 @@ int main(int argc, char **argv)
 		}
 	}
 
-	if (close(fd_from) == -1)
-		error_exit(100, "Error: Can't close fd %d\n", argv[1]);
-	if (close(fd_to) == -1)
-		error_exit(100, "Error: Can't close fd %d\n", argv[2]);
+	close_fd(fd_from);
+	close_fd(fd_to);
 
 	return (0);
 }
