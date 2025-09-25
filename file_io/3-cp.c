@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	if (fd2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 
-	filecheck = read(fd, buffer, 1024)
+	filecheck = read(fd, buffer, 1024);
 	while (filecheck > 0)
 	{
 		if (write(fd2, buffer, filecheck) == -1)
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
-		filecheck = read(fd, buffer. 1024);
+		filecheck = read(fd, buffer, 1024);
 	}
 	if (filecheck == -1)
 	{
